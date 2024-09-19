@@ -5,32 +5,33 @@ namespace Sp1.UiTests.Pages
 {
     public class MainNavigation
     {
-        private IWebDriver _driver;
+        private IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//div[@id='navMenu']/div[1]/div[1]/a")]
-        IWebElement _modules;
+        readonly IWebElement modules;
 
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Repertoire Management Module')]")]
-        IWebElement _repetoiremanagementmodule;
+        readonly IWebElement repetoiremanagementmodule;
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Repertoire Management Module')]")]
 
         [FindsBy(How = How.XPath, Using = "//h2[contains(text(),'Additional Features')]")]
-        IWebElement _additionalfeatures;
-
+        readonly IWebElement additionalfeatures;
 
 
         [FindsBy(How = How.Name, Using = "btnK")]
-        private IWebElement _searchbtn;
+        private IWebElement searchbtn;
 
         public MainNavigation(IWebDriver driver)
         {
-            _driver = driver;
+            this.driver = driver;
             PageFactory.InitElements(driver, this);
         }
 
         public void ClickRepetoireManagementModule(IWebDriver driver)
         {
-            _modules.Click();
-            _repetoiremanagementmodule.Click();
+            modules.Click();
+            repetoiremanagementmodule.Click();
 
         }
     }
